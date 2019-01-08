@@ -7,36 +7,36 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "bookit_user_venue")
+//@Table(name = "bookit_user_venue")
 public class Venue {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "venue_name")
+//    @Column(name = "venue_name")
     private String venueName;
 
-    @Column(name = "first_name")
+//    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "last_name")
+//    @Column(name = "last_name")
     private String lastName;
 
     @NotNull
-    @Column(unique = true, nullable = false)
+//    @Column(unique = true, nullable = false)
     private String login;
 
     @JsonIgnore
     @NotNull
-    @Column(name = "password_hash", nullable = false)
+//    @Column(name = "password_hash", nullable = false)
     private String password;
 
     @Email
-    @Column(unique = true)
+//    @Column(unique = true)
     private String email;
 
-    @Column(name = "venue_location")
+//    @Column(name = "venue_location")
     private String location;
 
     public Long getId() {

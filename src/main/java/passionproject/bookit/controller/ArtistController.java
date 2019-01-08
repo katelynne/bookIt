@@ -13,8 +13,8 @@ public class ArtistController {
     private ArtistRepository artistRepository;
 
     @Autowired
-    public ArtistController(ArtistRepository userArtistRepository) {
-        this.artistRepository = userArtistRepository;
+    public ArtistController(ArtistRepository artistRepository) {
+        this.artistRepository = artistRepository;
     }
 
     @PostMapping("/artist")
