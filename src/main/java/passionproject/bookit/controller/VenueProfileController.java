@@ -32,7 +32,7 @@ public class VenueProfileController {
     }
 
     @PutMapping("/venue-profile/{id}")
-    public ResponseEntity<?> updateArtistProfile(@RequestBody VenueProfile profile, @PathVariable Long id) {
+    public ResponseEntity<?> updateVenueProfile(@RequestBody VenueProfile profile, @PathVariable Long id) {
         venueProfileRepository.save(profile);
         return new ResponseEntity<>(HttpStatus.OK);
     }

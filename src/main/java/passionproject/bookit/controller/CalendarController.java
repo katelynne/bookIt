@@ -19,18 +19,18 @@ public class CalendarController {
     }
 
     @PostMapping("/calendar")
-    public ResponseEntity<ArtistProfile> createCalendar(@RequestBody Calendar calendar) {
+    public ResponseEntity<Calendar> createCalendar(@RequestBody Calendar calendar) {
         calendarRepository.save(calendar);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/calendar/{id}")
-    public ResponseEntity<Artist> getCalendar(@PathVariable Long id) {
+    public ResponseEntity<Calendar> getCalendar(@PathVariable Long id) {
         calendarRepository.findById(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PutMapping("/artist-profile/{id}")
+    @PutMapping("/calendar/{id}")
     public ResponseEntity<?> updateCalendar(@RequestBody Calendar calendar, @PathVariable Long id) {
         calendarRepository.save(calendar);
         return new ResponseEntity<>(HttpStatus.OK);

@@ -3,31 +3,84 @@ package passionproject.bookit.domain;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "venue_profile")
 public class VenueProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-//    @Column(name = "venue_name")
     private String venueName;
-
-//    @Column(name = "venue_first_name")
     private String firstName;
-
-//    @Column(name = "venue_last_name")
     private String lastName;
-
-//    @Column(name = "venue_location")
-    private String location;
+//    private Location location;
 
     @OneToOne
-//    @Column(name = "venue_calendar")
     private Calendar calendar;
 
-//    @OneToOne    @JoinColumn(unique = true)
     @OneToOne
     private Venue user;
 
+    public VenueProfile() {
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getVenueName() {
+        return venueName;
+    }
+
+    public void setVenueName(String venueName) {
+        this.venueName = venueName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+    public Venue getUser() {
+        return user;
+    }
+
+    public void setUser(Venue user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "VenueProfile{" +
+                "id=" + id +
+                ", venueName='" + venueName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", calendar=" + calendar +
+                ", user=" + user +
+                '}';
+    }
 }

@@ -37,7 +37,20 @@ public class Venue {
     private String email;
 
 //    @Column(name = "venue_location")
-    private String location;
+//    private Location location;
+
+
+    public Venue() {
+    }
+
+    public Venue(String venueName, String firstName, String lastName, @NotNull String login, @NotNull String password, @Email String email) {
+        this.venueName = venueName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+    }
 
     public Long getId() {
         return id;
@@ -50,7 +63,6 @@ public class Venue {
     public String getVenueName() {
         return venueName;
     }
-
 
     public void setVenueName(String venueName) {
         this.venueName = venueName;
@@ -94,5 +106,18 @@ public class Venue {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Venue{" +
+                "id=" + id +
+                ", venueName='" + venueName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

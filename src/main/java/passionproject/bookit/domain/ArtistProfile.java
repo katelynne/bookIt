@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class ArtistProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
 //    @Column(name = "group_name")
@@ -20,7 +20,7 @@ public class ArtistProfile {
     private String lastName;
 
 //    @Column(name = "artist_location")
-    private String location;
+//    private Location location;
 
     @OneToOne
 //    @JoinColumn(unique = true)
@@ -30,4 +30,68 @@ public class ArtistProfile {
     @OneToOne
 //    @JoinColumn(unique = true)
     private Artist user;
+
+    public ArtistProfile() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+
+    public Calendar getCalendar() {
+        return calendar;
+    }
+
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+    public Artist getUser() {
+        return user;
+    }
+
+    public void setUser(Artist user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "ArtistProfile{" +
+                "id=" + id +
+                ", groupName='" + groupName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", calendar=" + calendar +
+                ", user=" + user +
+                '}';
+    }
 }

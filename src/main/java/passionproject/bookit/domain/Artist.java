@@ -6,38 +6,45 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
+
 @Entity
-//@Table(name = "bookit_user_artist")
 public class Artist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    @Column(name = "group_name")
     private String groupName;
 
-//    @Column(name = "first_name")
     private String firstName;
 
-//    @Column(name = "last_name")
     private String lastName;
 
     @NotNull
-//    @Column(unique = true, nullable = false)
     private String login;
 
     @JsonIgnore
     @NotNull
-//    @Column(name = "password_hash", nullable = false)
     private String password;
 
+    private String passwordConfirm;
+
     @Email
-//    @Column(unique = true)
     private String email;
 
-//    @Column(name = "artist_location")
-    private String location;
+    public Artist() {
+    }
+
+    public Artist(String groupName, String firstName, String lastName, @NotNull String login, @NotNull String password, @Email String email) {
+        this.groupName = groupName;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.login = login;
+        this.password = password;
+        this.email = email;
+    }
+
+    //    private Location location;
 
     public Long getId() {
         return id;
@@ -75,8 +82,8 @@ public class Artist {
         return login;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String username) {
+        this.login = username;
     }
 
     public String getPassword() {
@@ -93,5 +100,27 @@ public class Artist {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", groupName='" + groupName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
